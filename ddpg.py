@@ -106,7 +106,7 @@ class DDPG(object):
         policy_loss = q_value.mean()
         policy_loss.backward()
         self.actor_optimizer.step()
-      """
+     
       # Update the target networks
       for target_param, param in zip(self.critic_bar.parameters(), self.critic.parameters()):
         target_param.data.copy_(self.to * param.data + (1.0 - self.to) * target_param.data)
@@ -114,4 +114,4 @@ class DDPG(object):
       for target_param, param in zip(self.actor_bar.parameters(), self.actor.parameters()):
         target_param.data.copy_(self.to * param.data + (1.0 - self.to) * target_param.data)
       #print(self.critic.layer_1.weight, self.critic.layer_1.bias)
-      """
+      
